@@ -22,10 +22,10 @@ jobs:
           # The message to use when committing changes.
           commit-message: Create new PR # optional, default is [create-pull-request] automated change
           # The pull request branch name.
-          branch: tranducduong1994-patch-1 # optional, default is create-pull-request/patch
+          branch: main # optional, default is create-pull-request/patch
           # The pull request base branch. Defaults to the branch checked out in the workflow.
 
-          base: main # optional
+          base: tranducduong1994-patch-1 # optional
 
           # The title of the pull request.
           title: Auto create a PR # optional, default is Changes by create-pull-request action
