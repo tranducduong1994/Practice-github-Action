@@ -1,5 +1,8 @@
 name: GitHub Actions Demo
-on: [push]
+on:
+  push:
+      branches:
+        - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -15,7 +18,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: tranducduong1994-patch-1
+          branch: tranducduong1994-patch-2
           delete-branch: false
           title: '[Example] Update report'
           body: |
