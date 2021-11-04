@@ -13,7 +13,7 @@ jobs:
       with:                            # If blank, default: triggered branch
         source_branch: "develop"
         destination_branch: "main"                      # If blank, default: master
-        pr_title: "Pulling ${{ github.ref }} into main" # Title of pull request
+        pr_title: "[MOB-XXX] small change" # Title of pull request
         pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
         github_token: ${{ github.token }}
         pr_reviewer: "tranducduong1994"
