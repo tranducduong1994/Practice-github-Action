@@ -4,22 +4,25 @@ on:
       branches:
         - main
 jobs:
-  Explore-GitHub-Actions:
+  createPullRequest:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+
+      - name: Make changes to pull request
+        run: date +%s > report.txt
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.PAT }}
           commit-message: Update report
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: tranducduong1994-patch-1
-          delete-branch: false
+          branch: example-patches
+          delete-branch: true
           title: '[Example] Update report'
           body: |
             Update report
@@ -30,15 +33,10 @@ jobs:
           labels: |
             report
             automated pr
-          assignees: tranducduong1994
-          reviewers: tranducduong1994
+          assignees: peter-evans
+          reviewers: peter-evans
           team-reviewers: |
             owners
             maintainers
           milestone: 1
           draft: false
-
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
