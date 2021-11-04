@@ -10,15 +10,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: pull-request
       uses: repo-sync/pull-request@v2
-      with:
-        source_branch: "develop"                                 # If blank, default: triggered branch
+      with:                            # If blank, default: triggered branch
         destination_branch: "main"                      # If blank, default: master
-        pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
+        pr_title: "Pulling ${{ github.ref }} into main" # Title of pull request
         pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
-        pr_reviewer: "tranducduong1994"                         # Comma-separated list (no spaces)
-        pr_assignee: "tranducduong1994"                         # Comma-separated list (no spaces)
-        pr_label: "auto-pr"                               # Comma-separated list (no spaces)
-        pr_milestone: "Milestone 1"                       # Milestone name
-        pr_draft: false                                    # Creates pull request as draft
-        pr_allow_empty: false                              # Creates pull request even if there are no changes
         github_token: ${{ github.token }}
