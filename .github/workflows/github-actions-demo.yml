@@ -15,6 +15,6 @@ jobs:
         destination_branch: "main"                      # If blank, default: master
         pr_title: "[MOB-XXX] small change" # Title of pull request
         pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
-        #github_token: ${{ github.token }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_reviewer: "tranducduong1994"
         pr_assignee: "tranducduong1994"
