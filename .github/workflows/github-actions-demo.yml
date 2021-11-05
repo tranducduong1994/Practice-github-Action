@@ -7,6 +7,9 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
+    - name: Get date
+      id: date
+      run: echo "::set-output name=date::$(date --date '1 week Monday' +'%Y.%m.%d')"
     - uses: actions/checkout@v2
     - name: pull-request
       uses: repo-sync/pull-request@v2
