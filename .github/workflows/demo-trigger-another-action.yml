@@ -18,10 +18,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      # Trigger another workflow
-      - name: Trigger another workflow
-        uses: convictional/trigger-workflow-and-wait@v1.3.0
+
+  create_pr:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
           owner: tranducduong1994
           repo: Practice-github-Action
