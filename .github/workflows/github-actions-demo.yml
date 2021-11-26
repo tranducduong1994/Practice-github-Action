@@ -7,14 +7,17 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
+    - name: Get date
+      id: date
+      run: echo "::set-output name=date::$(date --date '1 week Monday' +'%Y.%m.%d')"
     - uses: actions/checkout@v2
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:                            # If blank, default: triggered branch
         source_branch: "develop"
         destination_branch: "main"                      # If blank, default: master
-        pr_title: "[MOB-XXX] small change" # Title of pull request
+        pr_title: "[MOB-XXX] small change in ${{ steps.date.outputs.date }}" # Title of pull request
         pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
-        github_token: ${{ github.token }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_reviewer: "tranducduong1994"
         pr_assignee: "tranducduong1994"
