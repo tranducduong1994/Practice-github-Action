@@ -28,6 +28,5 @@ jobs:
           owner: tranducduong1994
           repo: Practice-github-Action
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: greet.yml
-          inputs: '{"name":"Duong"}'
+          workflow_file_name: github-actions-demo.yml
           ref: main
