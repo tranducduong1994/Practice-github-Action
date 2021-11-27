@@ -27,9 +27,6 @@ jobs:
         with:
           owner: tranducduong1994
           repo: Practice-github-Action
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: github-actions-demo.yml
-          ref: main
-          propagate_failure: false
-          trigger_workflow: true
-          wait_workflow: true
+          ref: develop
