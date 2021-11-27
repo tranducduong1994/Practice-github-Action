@@ -23,7 +23,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: convictional/trigger-workflow-and-wait@v1.5.0
+      - uses: convictional/trigger-workflow-and-wait@v1.4.0
         with:
           owner: tranducduong1994
           repo: Practice-github-Action
