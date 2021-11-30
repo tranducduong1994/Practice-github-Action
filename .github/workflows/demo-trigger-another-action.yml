@@ -23,6 +23,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: echo-default-env-variables
+        run: |
+          echo "GITHUB_REF: ${GITHUB_REF_NAME}"
       - uses: convictional/trigger-workflow-and-wait@v1.4.0
         with:
           owner: tranducduong1994
