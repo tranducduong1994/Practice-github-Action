@@ -29,4 +29,4 @@ jobs:
           repo: Practice-github-Action
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: github-actions-demo.yml
-          ref: "$GITHUB_REF_NAME"
+          ref: GITHUB_REF_NAME
