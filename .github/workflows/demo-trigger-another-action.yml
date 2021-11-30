@@ -23,14 +23,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: convictional/trigger-workflow-and-wait@v1.5.0
+      - uses: convictional/trigger-workflow-and-wait@v1.4.0
         with:
           owner: tranducduong1994
           repo: Practice-github-Action
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: github-actions-demo.yml
-          ref: main
-          propagate_failure: true
-          trigger_workflow: true
-          wait_workflow: true
-          waiting_interval: 10
+          ref: ${{ env.GITHUB_REF_NAME }}
