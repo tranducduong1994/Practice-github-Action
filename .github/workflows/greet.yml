@@ -8,13 +8,18 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'Duong'
-        # Input has to be provided for the workflow to run
+      SERVER_URL:
+        description: 'Server url'
         required: false
+        default: 'default'
+      WEBSOCKET_URL:
+        description: 'Web socket url'
+        required: false
+        default: 'default'
+      WEB_CLIENT_URL:
+        description: 'Web client url'
+        required: false
+        default: 'default'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,6 +33,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       env:
-        name: ${{ github.event.inputs.name }}
+        SERVER_URL: ${{ github.event.inputs.SERVER_URL }}
+        WEBSOCKET_URL: ${{ github.event.inputs.WEBSOCKET_URL }}
+        WEB_CLIENT_URL: ${{ github.event.inputs.WEB_CLIENT_URL }}
       run: |
-        [ "$name" != "duong" ] && echo "Hello ${name}"
+        [ "$SERVER_URL" != "default" ] && echo $SERVER_URL
+        [ "$WEBSOCKET_URL" != "default" ] && echo $WEBSOCKET_URL
+        [ "$WEB_CLIENT_URL" != "default" ] && echo $WEB_CLIENT_URL
