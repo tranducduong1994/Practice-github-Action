@@ -37,4 +37,6 @@ jobs:
         WEBSOCKET_URL: ${{ github.event.inputs.WEBSOCKET_URL }}
         WEB_CLIENT_URL: ${{ github.event.inputs.WEB_CLIENT_URL }}
       run: |
-        if [ "$SERVER_URL" != "default" ]; then echo $SERVER_URL fi
+        if [ "$SERVER_URL" != "default" ]; then
+          echo $SERVER_URL
+        fi
