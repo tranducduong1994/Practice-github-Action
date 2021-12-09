@@ -27,6 +27,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      env:
+        name: ${{ github.event.inputs.name }}
+      run: |
+        [ ! -z "$name" ] && echo "Hello ${name}"
