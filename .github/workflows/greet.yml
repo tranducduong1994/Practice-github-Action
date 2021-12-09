@@ -33,8 +33,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       env:
-        SERVER_URL: ${{ github.event.inputs.SERVER_URL }}
-        WEBSOCKET_URL: ${{ github.event.inputs.WEBSOCKET_URL }}
-        WEB_CLIENT_URL: ${{ github.event.inputs.WEB_CLIENT_URL }}
+        SERVER_URL: "123"
+        WEBSOCKET_URL: "123"
+        WEB_CLIENT_URL: "123"
       run: |
         [ "$SERVER_URL" != "default" ] && echo $SERVER_URL
