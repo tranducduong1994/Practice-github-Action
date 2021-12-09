@@ -37,4 +37,4 @@ jobs:
         WEBSOCKET_URL: 'default'
         WEB_CLIENT_URL: 'default'
       run: |
-        [ "$SERVER_URL" != "default" ] && echo $SERVER_URL
+        [ "$SERVER_URL" != "default" ] && echo $SERVER_URL || echo "not eq"
