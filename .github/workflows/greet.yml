@@ -6,20 +6,6 @@ name: Manual workflow
 # or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      SERVER_URL:
-        description: 'Server url'
-        required: false
-        default: 'default'
-      WEBSOCKET_URL:
-        description: 'Web socket url'
-        required: false
-        default: 'default'
-      WEB_CLIENT_URL:
-        description: 'Web client url'
-        required: false
-        default: 'default'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,11 +18,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      env:
-        SERVER_URL: ${{ github.event.inputs.SERVER_URL }}
-        WEBSOCKET_URL: ${{ github.event.inputs.WEBSOCKET_URL }}
-        WEB_CLIENT_URL: ${{ github.event.inputs.WEB_CLIENT_URL }}
-      run: |
-        if [ "$SERVER_URL" != "default" ]; then
-          echo $SERVER_URL
-        fi
+      run: echo "Hello World"
